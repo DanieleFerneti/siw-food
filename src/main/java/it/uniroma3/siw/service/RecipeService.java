@@ -44,14 +44,21 @@ public class RecipeService {
 
     @Transactional
     public boolean alreadyExists(Recipe recipe) {
-        return this.recipeRepository.existsByNameAndChef(recipe.getName(), recipe.getChef());
+       List<Recipe> recipes =  this.recipeRepository.findByChefAndDescriptionAndNameAndImagePaths(recipe.getChef(),recipe.getDescription(),recipe.getName(),recipe.getImagePaths());
+        for (Recipe r : recipes) {
+            if (r.getIngredients().containsAll(recipe.getIngredients()) && recipe.getIngredients().containsAll(r.getIngredients()) ){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Transactional
     public boolean youCantEdit(Recipe recipe) {
         List<Recipe> recipes = this.recipeRepository.findByChefAndDescriptionAndName(recipe.getChef(), recipe.getDescription(), recipe.getName());
         for (Recipe r : recipes) {
-            if (r.getIngredients().containsAll(recipe.getIngredients()) && recipe.getIngredients().containsAll(r.getIngredients())) {
+            if (r.getIngredients().containsAll(recipe.getIngredients()) && recipe.getIngredients().containsAll(r.getIngredients()) &&
+                    r.getImagePaths().containsAll(recipe.getImagePaths()) && recipe.getImagePaths().containsAll(r.getImagePaths())) {
                 return true;
             }
         }

@@ -55,6 +55,12 @@ h1 {
 	margin-bottom: 10%;
 	display: flex;
 	justify-content: center;
+	flex-direction: column-reverse;
+}
+
+span {
+	text-align: center;
+	color: white;
 }
 
 input {
@@ -136,7 +142,7 @@ fieldset {
 }
 
 #error {
-	color: black;
+	color: #ffffff;
 }
 
 #home {

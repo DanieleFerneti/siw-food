@@ -13,7 +13,7 @@ public interface RecipeRepository extends CrudRepository<Recipe,Long> {
 
     boolean existsByNameAndChef(String name, Chef chef);
 
-    boolean existsByChefAndDescriptionAndIngredientsAndName(Chef chef, String description, Set<Ingredient> ingredients, String name);
+    List<Recipe> findByChefAndDescriptionAndNameAndImagePaths(Chef chef, String description, String name,Set<String> imagePaths);
 
 
 

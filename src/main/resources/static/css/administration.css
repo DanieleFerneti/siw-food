@@ -34,38 +34,28 @@ body {
 	color: white;
 }
 
-#buffet {
-	background-color: white;
-	color: black;
-	border: 2px solid #5a7f5a;
-}
-
-#buffet:hover {
-	background-color: #5a7f5a;
-	color: white;
-}
-
-#piatto {
+#recipe {
 	background-color: white;
 	color: black;
 	border: 2px solid #09a8cf;
 }
 
-#piatto:hover {
+#recipe:hover {
 	background-color: #09a8cf;
 	color: white;
 }
 
-#ingrediente {
+#ingredient {
 	background-color: white;
 	color: black;
-	border: 2px solid dimgray;
+	border: 2px solid #5a7f5a;
 }
 
-#ingrediente:hover {
-	background-color: dimgray;
+#ingredient:hover {
+	background-color: #5a7f5a;
 	color: white;
 }
+
 
 a {
 	text-decoration: none;

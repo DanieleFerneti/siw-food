@@ -276,6 +276,7 @@ public class RecipeController {
         model.addAttribute("r", recipe);
         if (presenteInChef) {
             this.recipeService.deleteById(id);
+            FileStorer.dirEmptyEndDelete(recipe.getDirectoryName());
             return "redirect:/chef/{chef_id}/recipe_management";
         } else {
             return "chef/recipe/recipe_management";

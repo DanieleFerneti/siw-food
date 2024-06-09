@@ -122,6 +122,7 @@ public class ChefController {
             Credentials credentials = credentialService.findByChefId(id);
             if (credentials != null) {
                 this.credentialService.delete(credentials);
+                FileStorer.dirEmptyEndDelete(chef.getDirectoryName());
             }
 
             // Elimina lo chef

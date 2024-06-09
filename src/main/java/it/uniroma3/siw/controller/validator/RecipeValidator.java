@@ -57,16 +57,18 @@ public class RecipeValidator implements Validator {
             errors.rejectValue("chef", "required");
         }
 
-        /*
+
         // Validate if chef already exists
         if (this.recipeService.alreadyExists(recipe)) {
             errors.reject("recipe.duplicato");
         }
-        */
 
 
+        /*
         if(this.recipeService.youCantEdit(recipe)){
             errors.reject("recipe.modificato");
         }
+        */
+
     }
 }

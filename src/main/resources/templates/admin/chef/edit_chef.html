@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifica Chef</title>
+    <link rel="stylesheet" href="/css/create_chef.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+</head>
+<body>
+<div id="wrapper">
+    <div id="img_wrapper"></div>
+    <div id="form_wrapper">
+        <h1>Modifica lo chef</h1>
+        <div id="form" style="text-align: center; color: white;">
+            <form th:action="@{'/admin/chef_management/'+${chef.id}}" method="post" th:object="${chef}" enctype="multipart/form-data">
+                <div id="err" th:if="${#fields.hasGlobalErrors()}">
+                    <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
+                </div>
+                <span>Nome:</span>
+                <div class="input_form">
+                        <span>
+                            <input name="name" type="text" placeholder="name" th:field="*{name}" required/>
+                        </span>
+                    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                </div>
+                <span>Cognome:</span>
+                <div class="input_form">
+                        <span>
+                            <input type="text" name="surname" placeholder="surname" th:field="*{surname}" required/>
+                        </span>
+                    <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div>
+                </div>
+                <span>Data di nascità:</span>
+                <div class = "input_form">
+                        <span>
+                            <input type="date" name="data" th:field="*{data}" required/>
+                        </span>
+                    <div th:if="${#fields.hasErrors('data')}" th:errors="*{data}"></div>
+                </div>
+
+                <span>Carica una Immagine Profilo</span>
+                <div class="input_form">
+                    <label for="files" ></label>
+                    <input type="file" name="file" id="files"  />
+                </div>
+
+                <div id="submit_wrapper">
+                        <span>
+                            <button class="butt" id="submit" type="submit">CONFERMA</button>
+                        </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="back_wrapper">
+    <a th:href="@{/admin/chef_management}">
+        <button class="butt" id="back">Back</button>
+    </a>
+    <a th:href="@{/success}">
+        <button class="butt" id="home">Home</button>
+    </a>
+</div>
+</body>
+</html>

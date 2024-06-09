@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Ricetta Management </title>
+        <link rel="stylesheet" href="/css/management.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+    </head>
+    
+	<body>
+		<header>
+			<h1>Elenco delle ricette</h1>
+		</header>
+
+		<div id="create_wrapper">
+			<a th:href="@{/admin/recipe_management/add_recipe}">
+				<button class="butt" id="create">Aggiungi ricetta</button>
+			</a>
+		</div>
+
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Descrizione</th>
+				<th>Immagini ricette</th>
+				<th>Chef</th>
+				<th id="op1">Operazioni</th>
+			</tr>
+			<tr th:each="recipe: ${recipes}">
+				<td th:text="${recipe.name}">name</td>
+				<td th:text="${recipe.description}">description</td>
+				<td>
+					<!-- Link per visualizzare le immagini -->
+					<a th:href="@{'/admin/recipe_management/view_images/' + ${recipe.id}}">Visualizza Immagini</a>
+				</td>
+				<td th:text="${recipe.chef.name} + ' ' + ${recipe.chef.surname}">chef</td>
+				<td>
+			 		<a th:href="@{/admin/recipe_management/edit_recipe/{id}(id=${recipe.id})}">
+						<button type="submit" class="butt" id="update">Update</button>
+					</a>
+					<div class="tooltip">
+						<a th:if="${r?.id}==${recipe.id}" th:href="@{/admin/recipe_management/delete_recipe/{id}(id=${recipe.id})}">
+							<button class="butt delete_tooltip" id="delete">Delete </button>
+						</a>
+						<span class="tooltiptext">La ricetta <span id="name" th:text="${recipe.name}">/</span> non puo' essere eliminata perchè è presente in uno chef</span>
+					</div>
+					
+					<a th:unless="${r?.id}==${recipe.id}" th:href="@{/admin/recipe_management/delete_recipe/{id}(id=${recipe.id})}"
+						th:data-confirm-delete="|Sei sicuro di voler eliminare la ricetta ${recipe.name}?|"
+						onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
+						<button class="butt" id="delete">Delete </button>
+					</a>
+					<a th:href="@{/admin/recipe_management/recipe_details/{id}(id=${recipe.id})}">
+						<button class="butt" id="details">Details </button>
+					</a>
+				</td>
+			</tr>
+		</table>
+		
+		<div id="back_wrapper">
+			<a th:href="@{/success}">
+				<button class="butt" id="back">Back </button>
+			</a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Amministrazione SIW FOOD ROMA</title>
+    <link rel="stylesheet" href="/css/administration.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+</head>
+
+<body>
+<h1>Benvenuto!</h1>
+<h3>In questa pagina potrai modificare le informazioni relative alle ricette, agli chef e agli ingredienti </h3>
+<div>
+    <div id="button_wrapper">
+        <a th:href="@{/admin/chef_management}">
+            <button class="butt" id="chef">Chef management</button></a>
+
+        <a th:href="@{/admin/recipe_management}">
+            <button class="butt" id="recipe">Piatto management</button></a>
+
+        <a th:href="@{/admin/ingredient_management}">
+            <button class="butt" id="ingredient">Ingrediente management</button></a>
+    </div>
+</div>
+<br>
+
+<div>
+    <a th:href="@{/logout}">Logout</a>
+</div>
+</body>
+</html>

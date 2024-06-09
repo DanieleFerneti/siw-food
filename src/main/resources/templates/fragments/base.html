@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:fragment="headerfiles(title, links)">
+	    <title th:replace="${title}">Titolo</title>
+	    <meta charset="UTF-8" />
+		<link th:href="@{/css/base.css}" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+	    <!-- placeholder for additional links -->
+	    <th:block th:replace="${links}" />
+	</head>
+
+	<body>
+
+		<header th:fragment = "navigator">
+			<nav>
+			    <div class="link">
+		            <a class="dropbtn" th:href="@{/}" id="home">HOME</a>
+		        </div>
+			  	<div class="dropdown">
+			    	<button class="dropbtn"> CHEF</button>
+			     	<div class="dropdown-content">
+	                	<a th:each="chef : ${chefs}" th:href="@{'/chef_user' + '/' + ${chef.id}}" th:text="${chef.name} + ' ' + ${chef.surname}">Paolo Rossi</a>
+					</div> 	
+			    </div>
+
+				<div class="search-bar">
+					<form th:action="@{/search}" method="get">
+						<input type="text" name="query" placeholder="Cerca chef o ricetta..." />
+						<button type="submit">
+							<img src="@{/images/search-icon.png}" alt="Cerca">
+						</button>
+					</form>
+				</div>
+
+
+				<div class="link">
+					<a class="dropbtn" th:href="@{/register}">Registrati</a>
+				</div>
+
+				<div class="link">
+					<a class="dropbtn" th:href="@{/login}">Accedi</a>
+				</div>
+			</nav>
+        </header>
+
+		<main>
+			<!-- Content of the page goes here -->
+			<div th:replace="~{::main_content}"></div>
+		</main>
+        
+        <footer id="Footer" th:fragment = "footer">
+        
+        	<div id="container">
+	        	<div class="foot">
+	                <h2>Informazioni</h2>
+	                <div class="informazioni">
+	                    <p>Se stai cercando un piattaforma per aumentare la qualità dei piatti che cucini, stai nel posto giusto!
+							<strong>Affidati a SIW FOOD ROMA</strong> non te ne pentirai
+	                    </p>
+	                </div>
+	            </div>
+
+	            
+	            <div class="foot" id="admin">
+	                <h2>Amministratore</h2>
+	                <div class="informazioni">
+	                   <a th:href="@{/login}">Login</a>
+	                </div>
+	            </div>
+            
+            </div>
+        </footer>
+	</body>
+</html>

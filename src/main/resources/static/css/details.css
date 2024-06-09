@@ -1,0 +1,106 @@
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	width: 100%;
+	font-family: "Montserrat", Arial, Tahoma, sans-serif;
+	background-image: url("/images/sfondo_admin.png");
+	background-repeat: repeat;
+	background-size: inherit;
+	background-attachment: fixed;
+}
+
+header {
+	text-align: center;
+}
+
+table {
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	height: fit-content;
+	max-width: 78%;
+	width: fit-content;
+	margin-top: 5%;
+}
+
+th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #0b6208;;
+	color: white;
+}
+
+td, th {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: center;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+tr:hover {
+	background-color: #ddd;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.butt {
+	border: solid;
+	border-radius: 3px 3px 3px 3px;
+}
+
+#back_wrapper {
+	text-align: center;
+	margin: 3em;
+}
+
+#back {
+	background-color: white;
+	color: black;
+	border: 2px solid #ad75ad;
+}
+
+#back:hover {
+	background-color: #ad75ad;
+	color: white;
+}
+
+#home {
+	background-color: white;
+	color: black;
+	border: 2px solid #017257;
+}
+
+#home:hover {
+	background-color: #017257;
+	color: white;
+}
+
+.ingredient-name {
+	margin-right: 20px; /* Puoi regolare questo valore per aumentare o diminuire lo spazio */
+}
+
+.ingredient-quantity {
+	margin-left: 20px; /* Puoi regolare questo valore per aumentare o diminuire lo spazio */
+}
+td span.ingredient-quantity {
+	text-align: left !important;
+	margin-left: 0 !important;
+}
+
+#ingredients {
+	background-color: white;
+	color: black;
+	border: 2px solid orange;
+}
+
+#ingredients:hover {
+	background-color: orange;
+	color: white;
+}

@@ -1,0 +1,186 @@
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	width: 100%;
+	font-family: "Montserrat", Arial, Tahoma, sans-serif;
+	background-image: url("/images/sfondo.jpg");
+	background-repeat: repeat;
+	background-size: inherit;
+	background-attachment: fixed;
+}
+
+header {
+	text-align: center;
+}
+
+table {
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	height: fit-content;
+	max-width: 78%;
+	width: fit-content;
+}
+
+th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	background-color: #0b6208;
+	color: white;
+}
+
+tr {
+	background-color: white;
+}
+
+td, th {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: center;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+tr:hover {
+	background-color: #ddd;
+}
+
+.butt {
+	border: solid;
+	border-radius: 3px 3px 3px 3px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+#delete {
+	background-color: white;
+	color: black;
+	border: 2px solid #f44336;
+}
+
+#delete:hover {
+	background-color: #f44336;
+	color: white;
+}
+
+#update {
+	background-color: white;
+	color: black;
+	border: 2px solid deepskyblue;
+}
+
+#update:hover {
+	background-color: deepskyblue;
+	color: white;
+}
+
+#create {
+	background-color: white;
+	color: black;
+	border: 2px solid #4CAF50;
+	margin: 2em;
+	display: flex;
+	justify-content: center;
+}
+
+#create:hover {
+	background-color: #4CAF50;
+	color: white;
+}
+
+#create_wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+#details {
+	background-color: white;
+	color: black;
+	border: 2px solid orange;
+}
+
+#details:hover {
+	background-color: orange;
+	color: white;
+}
+
+#back_wrapper {
+	text-align: center;
+	margin: 3em;
+}
+
+#back {
+	background-color: white;
+	color: black;
+	border: 2px solid #ad75ad;
+}
+
+#back:hover {
+	background-color: #ad75ad;
+	color: white;
+}
+
+#op {
+	width: 15%;
+}
+
+#op1 {
+	width: 20%;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 175px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	/* Position the tooltip text */
+	position: absolute;
+	z-index: 1;
+	bottom: 140%;
+	left: -10%;
+	margin-left: -60px;
+	/* Fade in tooltip */
+	opacity: 0;
+	transition: opacity 0.3s;
+	padding: 14%;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+}
+
+.delete_tooltip {
+	margin-left: 4px;
+	margin-right: 0.2px;
+}
+
+#nome {
+	color: #0b6208;;
+}

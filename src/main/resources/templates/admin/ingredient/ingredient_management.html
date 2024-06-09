@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Ingredient Management </title>
+        <link rel="stylesheet" href="/css/management.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+    </head>
+
+	<body>
+
+		<header>
+			<h1>Elenco degli ingredienti</h1>
+		</header>
+
+		<div id="create_wrapper">
+			<a th:href="@{'/admin/ingredient_management/create_ingredient'}">
+				<button class="butt" id="create">Aggiungi ingrediente</button>
+			</a>
+		</div>
+
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Quantità</th>
+				<th id="op">Operazioni</th>
+			</tr>
+			<tr th:each="ingredient: ${ingredients}">
+				<td th:text="${ingredient.name}">name</td>
+			  	<td th:text="${ingredient.quantity}">quantity</td>
+				<td>
+			 		<a th:href="@{'/admin/ingredient_management/edit_ingredient/'+${ingredient.id}}">
+						<button type="submit" class="butt" id="update">Update</button>
+					</a>
+					<!--<span th:if="${ingr?.id}==${ingredient.id}"><button class="butt" id="delete">Delete </button></span>-->
+					<div class="tooltip">
+						<a th:if="${ingr?.id}==${ingredient.id}" th:href="@{'/admin/ingredient_management/delete_ingredient/'+${ingredient.id}}">
+							<button class="butt delete_tooltip" id="delete">Delete </button>
+						</a>
+						<span class="tooltiptext">L'ingrediente <span id="name" th:text="${ingredient.name}">/</span> non puo' essere eliminato perchè è presente in un piatto</span>
+					</div>
+
+					<a th:unless="${ingr?.id}==${ingredient.id}" th:href="@{'/admin/ingredient_management/delete_ingredient/'+${ingredient.id}}"
+					   th:data-confirm-delete="|Sei sicuro di voler eliminare lo ingrediente ${ingredient.name} ?|"
+					   onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
+						<button class="butt" id="delete">Delete </button>
+					</a>
+				</td>
+			</tr>
+		</table>
+
+		<div id="back_wrapper">
+			<a th:href="@{/success}">
+				<button class="butt" id="back">Back </button>
+			</a>
+		</div>
+
+	</body>
+</html>

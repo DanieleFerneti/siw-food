@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>SIW FOOD ROMA - Registrazione conclusa</title>
+	<link rel="stylesheet" href="/css/registrationSuccessful.css" />
+</head>
+
+<body>
+<header>
+	<div th:if="${chef_details}">
+		<span th:text="${chef.name}"></span>
+		<a href="/logout">Logout</a>
+	</div>
+	<div th:unless="${user}">
+		<a href="/login">Login</a>
+	</div>
+</header>
+
+<div id="register_wrapper">
+	<div id="img_wrapper"> </div>
+	<div id="form_wrapper">
+		<h1>Benvenuto nel nostro team di Chef!</h1>
+
+
+		<div class = "input_form">
+			<label>Nome: </label>
+			<span th:text="${user.name}"></span>
+		</div>
+		<div class = "input_form">
+			<label>Cognome: </label>
+			<span th:text="${user.surname}"></span>
+		</div>
+		<div id="back_wrapper">
+			<a th:href="@{/}">
+				<button class="butt" id="back">Back </button>
+			</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

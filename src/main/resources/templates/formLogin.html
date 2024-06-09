@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title> Login </title>
+	<link rel="stylesheet" href="/css/loginForm.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" href="/images/favicons/login_favicon.png">
+</head>
+
+<body>
+
+
+<div id="login_wrapper">
+	<div id="img_wrapper">
+	</div>
+	<div id="form_wrapper">
+		<h1>Accedi al tuo account</h1>
+		<div id="form">
+			<form th:action="@{/login}" method="POST">
+				<div class="input_form">
+                            <span>
+                                <input name="username" type="text" placeholder="username" required/>
+                            </span>
+				</div>
+
+				<div class="input_form">
+                            <span>
+                                <input name="password" type="password" placeholder="password" required/>
+                            </span>
+				</div>
+
+				<div id="login_butt">
+                            <span>
+                                <button class="butt" id="submit" type="submit">LOGIN</button>
+                            </span>
+				</div>
+
+				<a class="btn btn-outline-success mt-2 mb-4" href="/oauth2/authorization/google">
+					<img style="width: 25px; margin-right: 10px" src="/images/favicons/icon-google.png">
+					Login With Google
+				</a>
+
+			</form>
+		</div>
+	</div>
+</div>
+<div id="back_wrapper">
+	<a th:href="@{/}">
+		<button class="butt" id="back">Back </button>
+	</a>
+</div>
+
+</body>
+</html>

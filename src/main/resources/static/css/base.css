@@ -1,0 +1,175 @@
+html, body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+main {
+	flex: 1;
+}
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header {
+	height: fit-content;
+	width: 100%;
+	background-color: #f5f5f5;
+	position: fixed;
+	top: 0;
+	z-index: 1;
+}
+
+header a {
+	text-decoration: none;
+	color: black;
+}
+
+.link {
+	width: 10%;
+	text-align: center;
+}
+
+#home {
+	text-decoration: none;
+	color: #f2c01a;
+}
+
+/*********** DROPDOWN **********/
+.dropbtn {
+	background-color: #f5f5f5;
+	color: black;
+	padding: 16px;
+	font-size: 16px;
+	font-family: "Montserrat", Arial, Tahoma, sans-serif;
+	border: none;
+	cursor: pointer;
+	height: 5.4em;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	position: relative;
+	display: inline-block;
+	border: 5px;
+	margin-right: 1%;
+	margin-left: 1%;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	font-family: system-ui;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+	color: #fdc714;
+}
+
+footer {
+	background-color: #285a44;
+	height: fit-content;
+	color: white;
+	width: 100%;
+	font-family: Sans-serif;
+}
+
+footer a {
+	text-decoration: none;
+	color: #f2c01a;
+}
+
+.foot {
+	padding: 1% 1% 2% 2%;
+	width: 50%;
+	font-size: 20px;
+}
+
+#container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.foot h2 {
+	border-bottom: solid 4px;
+	padding-bottom: 5%;
+	width: 84%;
+}
+
+.informazioni p {
+	font-size: 18px;
+}
+
+#admin {
+	width: 44%;
+}
+
+.search-bar {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center; /* Aggiunto per allineare verticalmente */
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
+.search-bar form {
+	display: flex;
+	width: 100%;
+	max-width: 600px;
+	margin-right: 10px; /* Aggiunto margine destro per separare dal bottone */
+}
+
+.search-bar input[type="text"] {
+	flex-grow: 1;
+	padding: 10px;
+	font-size: 16px;
+	border: none; /* Rimossa la bordatura */
+	border-radius: 25px; /* Modificato per avere bordi più arrotondati */
+	outline: none;
+}
+
+.search-bar button {
+	padding: 10px;
+	font-size: 16px;
+	background-color: #556B2F; /* Colore verde oliva */
+	color: white; /* Testo bianco */
+	border: none;
+	border-radius: 25px; /* Angoli arrotondati */
+	cursor: pointer;
+	outline: none;
+}
+
+.search-bar button img {
+	width: 20px;
+	height: 20px;
+}
+
+

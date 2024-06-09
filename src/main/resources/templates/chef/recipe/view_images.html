@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Visualizza Immagini Ricetta</title>
+    <!-- Includi qui i tuoi stili CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<h1>Immagini della Ricetta: <span th:text="${recipe.name}"></span></h1>
+<div class="image-gallery">
+    <!-- Itera attraverso le immagini della ricetta -->
+    <div class="card-deck">
+        <div class="card" th:each="imagePath : ${recipe.imagePaths}" style="width: 18rem;">
+            <img th:src="${imagePath}" class="card-img-top" alt="Immagine Ricetta"/>
+        </div>
+    </div>
+</div>
+<a th:href="@{'/chef/'+${chef_id}+'/recipe_management'}">
+    <button class="btn btn-primary">Torna alla Gestione Ricette</button>
+</a>
+<!-- Includi qui i tuoi script JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

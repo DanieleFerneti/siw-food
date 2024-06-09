@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Dettagli ricetta </title>
+        <link rel="stylesheet" href="/css/details.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+    </head>
+    
+	<body>
+		<header>
+			<h1>Dettagli delle tue ricette</h1>
+		</header>
+
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Descrizione</th>
+				<th>Lista degli ingredienti</th>
+			</tr>
+			<tr th:each="recipe : ${recipes}">
+				<td th:text="${recipe.name}">name</td>
+				<td th:text="${recipe.description}">description</td>
+				<td>
+					<ul>
+						<li th:each="ingredient : ${recipe.ingredients}">
+							<span class="ingredient-name" th:text="${ingredient.name}" style="display: inline-block; width: 150px;" ></span>
+							<span class="ingredient-quantity" th:text="${ingredient.quantity}" style="text-align: right; margin-left: 0; padding-right: 0; display: inline-block; width: 50px;"></span>
+
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		
+		<div id="back_wrapper">
+			<a th:href="@{'/chef/'+${chef_id}+'/recipe_management'}">
+				<button class="butt" id="back">Back </button>
+			</a>
+			 <a th:href="@{/success}">
+				<button class="butt" id="home">Home </button>
+			</a>
+		</div>
+	</body>
+</html>

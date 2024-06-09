@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
+	<title> SIW FOOD ROMA </title>
+	<link href="/css/index.css" rel="stylesheet"/>
+	<link rel="icon" type="image/png" href="/images/logoSiwFood.png">
+</head>
+
+
+<body>
+
+<header th:replace="fragments/base.html :: navigator">
+</header>
+
+<div id="Intro_wrapper">
+	<div id="intro_background">
+		<div id="title-wrapper">
+			<div id="title">SIW FOOD ROMA</div>
+		</div>
+
+		<div id="content">
+			<ul>
+				<li id="s">
+					<span>S</span>APORI NUOVI
+					<div class="highlight"></div>
+				</li>
+				<li id="i">
+					<span>I</span>NNOVAZIONE
+					<div class="highlight"></div>
+				</li>
+				<li id="w">
+					<span>W</span>ORLDWIDE CHEFS
+					<div class="highlight"></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="main_content">
+	<h2>PRONTO A VIAGGIARE PER IL MONDO SOLO CON IL PALATO?</h2>
+	<div id="content1">
+		<p> <strong>SIW FOOD ROMA</strong> è una piattaforma web di primo livello, ricca di ricette provenienti da tutto il mondo, ideate dai migliori chef
+			con l'obiettivo di renderle il più semplici possibili, per farsì che anche i più inesperti potranno cimentarsi nella realizzazione di alcuni dei piatti
+			stellati e non, usando ingredienti che includono persino le parti più remote di questo pianeta.
+		</p>
+
+		<p>
+			Altra caratteristica fondamentale del nostro staff, è la fame di innovazione e ricerca nel mondo della cucina, con un solo obiettivo:
+			<strong> far viaggiare il cliente per tutto il mondo solo mangiando le nostre ricette e chiudendo gli occhi </strong>
+		</p>
+	</div>
+
+	<div id = content4> <h1>Tra i nostri chef</h1></div>
+	<div id="content2">
+
+			<div class="wrap">
+				<div class="column">
+					<div class="zoom_box">
+						<div class="photo">
+							<img src="/images/BrunoBarbieri.jpeg" alt="Bruno Barbieri"/>
+							<div class="overlay">
+								<div class="text">
+									<p>Bruno</p>
+									<p>Barbieri</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="description">
+						<p><strong>Bruno Barbieri</strong></p>
+						<p><strong>Perfezionista</strong>, uno chef sempre alla ricerca dell'ottimo nelle sue ricette</p>
+					</div>
+				</div>
+			</div>
+
+
+		<div class="wrap">
+			<div class="column">
+				<div class="zoom_box">
+					<div class="photo">
+						<img src="/images/iginio_massari.jpg" alt="Iginio Massari"/>
+						<div class="overlay">
+							<div class="text">
+								<p>Iginio</p>
+								<p>Massari</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="description">
+					<p><strong>Iginio Massari</strong></p>
+					<p><strong>Esperienza</strong>, ciò che porta questo chef grazie alle sue conoscenze, in particolare nel mondo della pasticceria</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrap">
+			<div class="column">
+				<div class="zoom_box">
+					<div class="photo">
+						<img src="/images/Cannavacciuolo-Antonino.jpg" alt="Antonino Cannavacciuolo"/>
+						<div class="overlay">
+							<div class="text">
+								<p>Antonino</p>
+								<p>Cannavacciuolo</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="description">
+					<p><strong>Antonino Cannavacciuolo</strong></p>
+					<p><strong>Un Gigante Buono</strong>, viene definito così per tutto l'amore che mette nei piatti, il quale è il primo ingrediente che serve per qualsiasi ricetta</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer th:replace="fragments/base.html :: footer"></footer>
+
+</body>
+</html>

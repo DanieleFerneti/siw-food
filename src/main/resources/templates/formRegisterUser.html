@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SIW FOOD ROMA - Registrazione
+	</title>
+	<link rel="stylesheet" href="/css/create_chef.css" />
+</head>
+
+<body>
+
+
+<div id="wrapper">
+	<div id="img_wrapper">
+	</div>
+	<div id="form_wrapper">
+		<h1>Registrazione nuovo Chef</h1>
+		<div id="form">
+			<form th:action="@{/register}" method="POST" enctype="multipart/form-data" >
+
+				<!-- Nome -->
+				<span>Nome:</span>
+				<div class="input_form">
+                    <span>
+                        <input name="name" type="text" placeholder="name" th:field="${user.name}" required/>
+                    </span>
+					<div th:if="${#fields.hasErrors('user.name')}" th:errors="*{user.name}" class="error">Nome Error</div>
+				</div>
+
+				<!-- Cognome -->
+				<span>Cognome:</span>
+				<div class="input_form">
+                    <span>
+                        <input name="surname" type="text" placeholder="surname" th:field="${user.surname}" required/>
+                    </span>
+					<div th:if="${#fields.hasErrors('user.surname')}" th:errors="${user.surname}" class="error">Cognome Error</div>
+				</div>
+
+				<!-- Data di nascità -->
+				<span>Data di nascità:</span>
+				<div class="input_form">
+                    <span>
+                        <input name="data" type="date" placeholder="data" th:field="${user.data}" required/>
+                    </span>
+					<div th:if="${#fields.hasErrors('user.data')}" th:errors="${user.data}" class="error">Data di nascità Error</div>
+				</div>
+
+				<!-- Immagine profilo -->
+				<span>Immagine profilo</span>
+				<div class="input_form">
+					<label for="files"></label>
+					<input type="file" placeholder="imageFile" name="file" id="files"/>
+				</div>
+
+				<!-- Username -->
+				<span>Username:</span>
+				<div class="input_form">
+    				<span>
+        				<input name="username" type="text" placeholder="username" th:field="${credentials.username}" required/>
+   					 </span>
+					<div th:if="${#fields.hasErrors('credentials.username')}" th:errors="${credentials.username}" class="error">Username Error</div>
+				</div>
+
+				<!-- Password -->
+				<span>Password:</span>
+				<div class="input_form">
+					<span>
+						<input name="password" type="password" placeholder="password" th:field="${credentials.password}" required/>
+					</span>
+					<div th:if="${#fields.hasErrors('credentials.password')}" th:errors="${credentials.password}" class="error">Password Error</div>
+				</div>
+
+
+				<div id="submit_butt">
+				<span>
+					<button class="butt" id="submit" type="submit">Registra</button>
+				</span>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="back_wrapper">
+	<a th:href="@{/}">
+		<button class="butt" id="back">Back </button>
+	</a>
+</div>
+
+</body>
+
+</html>

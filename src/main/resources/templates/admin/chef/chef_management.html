@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Chef Management </title>
+        <link rel="stylesheet" href="/css/management.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+    </head>
+    
+	<body>
+	
+		<header>
+			<h1>Elenco degli chef</h1>
+		</header>
+
+		<div id="create_wrapper">
+			<a th:href="@{/admin/chef_management/create_chef}">
+				<button class="butt" id="create">Aggiungi chef</button>
+			</a>
+		</div>
+	
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Cognome</th>
+				<th>Data di nascità</th>
+				<th>Immagine profilo</th>
+				<th id="op1">Operazioni</th>
+			</tr>
+			<tr th:each="chef: ${chefs}">
+				<td th:text="${chef.name}">name</td>
+			  	<td th:text="${chef.surname}">surname</td>
+				<td th:text="${chef.data}">Data</td>
+				<td>
+					<img th:src="${chef.imageFileName}" alt="Profile image of chef" style="width:100px; height:auto;">
+				</td>
+			 	<td>
+			 		<a th:href="@{/admin/chef_management/edit_chef/{id}(id=${chef.id})}">
+						<button type="submit" class="butt" id="update">Update</button>
+					</a>
+					<a th:href="@{/admin/chef_management/delete_chef/{id}(id=${chef.id})}"
+						th:data-confirm-delete="|Sei sicuro di voler eliminare lo chef ${chef.name} ${chef.surname} ?|"
+						onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
+						<button class="butt" id="delete">Delete </button>
+					</a>
+					<a th:href="@{/admin/chef_management/chef_details/{id}(id=${chef.id})}">
+						<button class="butt" id="details">Details </button>
+					</a>
+				</td>
+			</tr>
+		</table>
+	
+		<div id="back_wrapper">
+			<a th:href="@{/success}">
+				<button class="butt" id="back">Back </button>
+			</a>
+		</div>
+	</body>
+</html>

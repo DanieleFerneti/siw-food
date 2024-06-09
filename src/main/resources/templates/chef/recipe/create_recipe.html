@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Inserisci una nuova ricetta</title>
+    <link rel="stylesheet" href="/css/create_recipe.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+</head>
+
+<body>
+
+<div id="wrapper">
+    <div id="img_wrapper"></div>
+    <div id="form_wrapper">
+        <h1>Inserisci una nuova ricetta</h1>
+        <div id="form">
+            <form id="sectionForm" th:action="@{'/chef/'+${chef_id}+'/recipe_management/add_recipe'}" method="POST" th:object="${recipe}" enctype="multipart/form-data">
+                <div id="error" th:if="${#fields.hasGlobalErrors()}">
+                    <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
+                </div>
+
+                <span>Nome:</span>
+                <div class="input_form">
+                    <span>
+                        <input name="name" type="text" placeholder="name" th:field="*{name}" required/>
+                    </span>
+                    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                </div>
+
+                <span>Descrizione:</span>
+                <div class="input_form">
+                    <span>
+                        <input name="description" type="text" placeholder="description" th:field="*{description}" required/>
+                    </span>
+                    <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+                </div>
+
+                <span>Carica immagini:</span>
+                <div class="input_form">
+                    <label for="files"></label>
+                    <input type="file" id="files" name="files" multiple>
+                </div>
+
+                <div class="input_form">
+                    <span>
+                        <input type="hidden" name="chef" th:value="${chef_id}" />
+                    </span>
+                    <div th:if="${#fields.hasErrors('chef')}" th:errors="*{chef}"></div>
+                </div>
+
+                <fieldset>
+                    <legend>Scegli gli ingredienti</legend>
+                    <div class="checkmark" th:each="ingredient: ${ingredients}">
+                        <input type="checkbox" id="${ingredients}" th:field="*{ingredients}" name="ingredient" th:value="${ingredient.id}">
+                        <label for="${ingredients}">
+                            <span th:text="${ingredient.name} + ' ' + '(' + ${ingredient.quantity} + ')'">name ingredient</span>
+                        </label>
+                    </div>
+                    <div th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}"></div>
+                </fieldset>
+
+                <script src="/js/checkbox.js"></script>
+
+                <div id="submit_wrapper">
+                    <span>
+                        <button class="butt" id="submit" type="submit">INSERISCI</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="back_wrapper">
+    <a th:href="@{'/chef/'+${chef_id}+'/recipe_management'}">
+        <button class="butt" id="back">Back</button>
+    </a>
+    <a th:href="@{/success}">
+        <button class="butt" id="home">Home</button>
+    </a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> Inserisci un  nuovo ingrediente </title>
+        <link rel="stylesheet" href="/css/create_ingredient.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/images/favicons/management_favicon.png">
+    </head>
+    
+    <body>
+
+		<div id="wrapper">
+            <div id="img_wrapper">
+            </div>
+            <div id="form_wrapper">
+                <h1>Inserisci un nuovo ingrediente</h1>
+                <div id="form">
+                    <form th:action="@{'/chef/'+ ${chef_id} +'/ingredient_management/add_ingredient'}" method="POST" th:object="${ingredient}">
+						<div id="error" th:if="${#fields.hasGlobalErrors()}">
+							<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p> 
+						</div>
+                        <div class="input_form"> 
+                            <span>
+                                <input name="name" type="text" placeholder="name" th:field="*{name}" required/>
+                            </span>
+                            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error">Nome Error</div>
+                        </div>
+
+                        <div class="input_form"> 
+                            <span>
+                                <input name="origine" type="text" placeholder="quantity" th:field="*{quantity}" required/>
+                            </span>
+                            <div th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}" class="error">Nome Error</div>
+                        </div>
+
+                        <div id="submit_wrapper">
+                            <span>
+                                <button class="butt" id="submit" type="submit">INSERISCI</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      
+        <div id="back_wrapper">
+            <a th:href="@{'/chef/'+${chef_id}+'/ingredient_management'}">
+                <button class="butt" id="back">Back </button>
+            </a>
+             <a th:href="@{/success}">
+				<button class="butt" id="home">Home </button>
+			</a>
+        </div>
+		
+	</body>
+</html>

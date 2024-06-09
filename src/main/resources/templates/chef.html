@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
+	<title th:text="${chef.name}+' '+${chef.surname}"></title>
+	<link rel="stylesheet" href="/css/chef.css"/>
+	<link rel="icon" type="image/png" href="/images/favicons/chef_favicon.png">
+</head>
+
+<body>
+
+<header th:replace="fragments/base.html :: navigator"></header>
+<main th:replace="fragments/base.html :: main">
+	<div th:fragment="main_content">
+		<div class="chef_wrapper">
+			<div id="dettagli_chef">
+				<div id="content">
+					SCOPRI LE RICETTE DELLO CHEF <br>
+					<strong th:text="${chef.name} +' '+${chef.surname}"> Bruno</strong>
+					<div id="img">
+						<img th:src="${chef.imageFileName}" alt="Profile image of chef">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+
+<section id="buffet_wrapper">
+	<div id="menu_wrapper" th:each="recipe : ${chef.recipes}">
+		<div id="menu-desc">
+			<h4 th:text="${recipe.name}">Recipe Name</h4>
+			<div th:text="${recipe.description}" style="padding: 6%">Recipe Description</div>
+			<div id="card-body">
+				<a th:href="@{/recipe/details/{id}(id=${recipe.id})}" class="btn btn-primary">Dettagli ricetta</a>
+			</div>
+		</div>
+	</div>
+</section>
+<footer th:replace="fragments/base.html :: footer"></footer>
+
+</body>
+</html>

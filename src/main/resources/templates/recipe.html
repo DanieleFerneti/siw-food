@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(~{::title}, ~{::link})">
+	<title th:text="${recipe.name}"> </title>
+	<link rel="stylesheet" href="/css/recipe.css"/>
+	<link rel="icon" type="image/png" href="/images/favicons/piatto_favicon.png">
+</head>
+
+<body>
+<header th:replace="fragments/base.html :: navigator"></header>
+<main th:replace="fragments/base.html :: main">
+	<div th:fragment="main_content">
+		<div class="dettagli_wrapper">
+			<div id="dettagli_piatto">
+				<h1 th:text="${recipe.name}" > Spaghetti alla carbonara</h1>
+				<div th:text="${recipe.description}" > </div>
+
+
+				<h4>Gli ingredienti di questa ricetta sono:</h4>
+				<div id="dettagli">
+					<ul>
+						<li th:each="ingredient : ${recipe.ingredients}">
+							<a id="ingredients" th:text="${ingredient.name}">Nome ingrediente</a>
+							<a id="ingredients" th:text="${ingredient.quantity}">Nome ingrediente</a>
+						</li>
+					</ul>
+				</div>
+
+				<div th:text = "${chef.name} +' '+ ${chef.surname}" ></div>
+			</div>
+
+		</div>
+
+		<div id="foto_ricetta">
+			<div class="image-container"  th:each="imagePath : ${recipe.imagePaths}">
+				<img th:src="@{${imagePath}}" alt="Foto della ricetta"/>
+			</div>
+		</div>
+	</div>
+</main>
+
+<footer th:replace="fragments/base.html :: footer"></footer>
+
+</body>
+</html>

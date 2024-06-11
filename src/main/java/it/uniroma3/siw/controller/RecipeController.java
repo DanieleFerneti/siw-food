@@ -256,8 +256,15 @@ public class RecipeController {
 
         model.addAttribute("r", recipe);
         if (!presenteInChef) {
-            this.recipeService.deleteById(id);
-            FileStorer.dirEmptyEndDelete(recipe.getDirectoryName());
+            for(String image : recipe.getImagePaths()){
+                if(image.equals("/images/default-recipe.png")){
+                    this.recipeService.deleteById(id);
+                }
+                else {
+                    this.recipeService.deleteById(id);
+                    FileStorer.dirEmptyEndDelete(recipe.getDirectoryName());
+                }
+            }
             return "redirect:/admin/recipe_management";
         } else {
             model.addAttribute("recipes", this.recipeService.getAllRecipes());
@@ -275,8 +282,14 @@ public class RecipeController {
         model.addAttribute("recipes", chef.getRecipes());
         model.addAttribute("r", recipe);
         if (presenteInChef) {
-            this.recipeService.deleteById(id);
-            FileStorer.dirEmptyEndDelete(recipe.getDirectoryName());
+            for(String image : recipe.getImagePaths()) {
+                if (image.equals("/images/default-recipe.png")) {
+                    this.recipeService.deleteById(id);
+                } else {
+                    this.recipeService.deleteById(id);
+                    FileStorer.dirEmptyEndDelete(recipe.getDirectoryName());
+                }
+            }
             return "redirect:/chef/{chef_id}/recipe_management";
         } else {
             return "chef/recipe/recipe_management";

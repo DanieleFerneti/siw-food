@@ -121,8 +121,15 @@ public class ChefController {
             // Recupera ed elimina le credenziali associate allo chef
             Credentials credentials = credentialService.findByChefId(id);
             if (credentials != null) {
-                this.credentialService.delete(credentials);
-                FileStorer.dirEmptyEndDelete(chef.getDirectoryName());
+
+                if(chef.getImageFileName().equals("/images/default.jpeg")) {
+                    this.credentialService.delete(credentials);
+
+                }
+                else {
+                    this.credentialService.delete(credentials);
+                    FileStorer.dirEmptyEndDelete(chef.getDirectoryName());
+                }
             }
 
             // Elimina lo chef

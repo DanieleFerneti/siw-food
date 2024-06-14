@@ -27,7 +27,6 @@ public class IndexController {
             return "redirect:/chef_user/" + chef.getId();
         }
 
-
         Recipe recipe = recipeService.findByName(query);
         if (recipe != null) {
             return "redirect:/recipe/details/" + recipe.getId();

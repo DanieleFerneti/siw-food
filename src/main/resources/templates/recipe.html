@@ -31,9 +31,9 @@
 
 		</div>
 
-		<div id="foto_ricetta">
+		<div class="foto_ricetta">
 			<div class="image-container"  th:each="imagePath : ${recipe.imagePaths}">
-				<img th:src="@{${imagePath}}" alt="Foto della ricetta"/>
+				<img style="width: 100%;" th:src="@{${imagePath}}" alt="Foto della ricetta"/>
 			</div>
 		</div>
 	</div>

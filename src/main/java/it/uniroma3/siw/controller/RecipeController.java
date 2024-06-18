@@ -237,7 +237,7 @@ public class RecipeController {
             // Salva di nuovo la ricetta con i percorsi delle immagini aggiornati
             this.recipeService.save(recipe);
 
-            return "redirect:/chef/" + chef_id + "/recipe_management";
+            return "redirect:/chef/{chef_id}/recipe_management";
         } else {
 
             model.addAttribute("ingredients", this.ingredientService.getAllIngredients());

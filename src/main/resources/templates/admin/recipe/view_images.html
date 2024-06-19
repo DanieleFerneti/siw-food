@@ -4,24 +4,7 @@
     <title>Visualizza Immagini Ricetta</title>
     <!-- Includi qui i tuoi stili CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .carousel-item img {
-            height: 80vh;
-            object-fit: cover;
-        }
-        body {
-            background-image: url("/images/sfondo.jpg");
-        }
-        #back_wrapper {
-            text-align: center;
-            margin: 3em;
-        }
-        .butt {
-            border: solid;
-            border-radius: 3px 3px 3px 3px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="/css/view_images.css" />
 </head>
 <body>
 <h1 style="text-align: center; background: #f9f9f9; margin: 0">Immagini della Ricetta: <span th:text="${recipe.name}"></span></h1>

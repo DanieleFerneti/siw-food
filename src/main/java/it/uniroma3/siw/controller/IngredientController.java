@@ -52,9 +52,7 @@ public class IngredientController {
     @GetMapping("/chef/{chef_id}/ingredient_management")
     public String getAllIngredientsChef(Model model, @PathVariable("chef_id") Long chef_id) {
         Set<Ingredient> ingredients = this.ingredientService.getAllIngredients();
-
         model.addAttribute("ingredients", ingredients);
-
         return "chef/ingredient/ingredient_management";
     }
 

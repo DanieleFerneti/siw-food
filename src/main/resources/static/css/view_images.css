@@ -1,0 +1,15 @@
+.carousel-item img {
+    height: 80vh;
+    object-fit: cover;
+}
+body {
+    background-image: url("/images/sfondo.jpg");
+}
+#back_wrapper {
+    text-align: center;
+    margin: 3em;
+}
+.butt {
+    border: solid;
+    border-radius: 3px 3px 3px 3px;
+}

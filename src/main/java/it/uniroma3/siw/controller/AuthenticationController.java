@@ -102,27 +102,7 @@ public class AuthenticationController {
         }
         return "formLogin";
     }
-/*
-    @GetMapping("/success/oauth")
-    public String defaultAfterLoginOauth(Model model) {
 
-        OAuth2User userDetails = (OAuth2User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(userDetails.getAttributes().toString());
-        String fullName = (String) userDetails.getAttribute("name"); // Recupera il nome completo dell'utente
-        Chef chef = chefService.findByFullName(fullName); // Cerca un chef con il nome completo dell'utente
-        if (chef == null) {
-            // Se non esiste un chef con quel nome completo, crea un nuovo chef
-            chef = new Chef();
-            chef.setName((String) userDetails.getAttribute("given_name"));
-            chef.setSurname((String) userDetails.getAttribute("family_name"));
-            chef.setData(LocalDate.now());
-            // Assicurati di impostare il path dell'immagine in base ai tuoi requisiti
-            chef.setimageFileName("path/to/default/image"); // Imposta il percorso predefinito dell'immagine
-            chefService.save(chef);
-        }
-
-        return "redirect:/";
-    }*/
 
 
 

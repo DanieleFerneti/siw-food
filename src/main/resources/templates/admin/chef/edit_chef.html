@@ -35,7 +35,7 @@
                 <span>Data di nascità:</span>
                 <div class = "input_form">
                         <span>
-                            <input type="date" name="data" th:field="*{data}" required/>
+                            <input type="date" name="data" th:value="*{data}"  th:default="*{data}" required/>
                         </span>
                     <div th:if="${#fields.hasErrors('data')}" th:errors="*{data}"></div>
                 </div>
@@ -43,7 +43,7 @@
                 <span>Carica una Immagine Profilo</span>
                 <div class="input_form">
                     <label for="files" ></label>
-                    <input type="file" name="file" id="files"  />
+                    <input type="file" name="file" id="files" th:value="*{data}"  th:default=$ />
                 </div>
 
                 <div id="submit_wrapper">

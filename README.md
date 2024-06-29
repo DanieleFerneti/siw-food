@@ -34,6 +34,11 @@ Il sistema prevede un diverso funzionamento in base al tipo di utente. Gli utent
 2. **Utente Autenticato (Chef):** Gli chef, oltre a poter consultare tutte le ricette, possono aggiungere nuovi ingredienti e nuove ricette; inoltre possono modificare e cancellare le proprie ricette.
 3. **Utente Autenticato (Admin):** Gli amministratori possono aggiungere, modificare e cancellare ingredienti, cuochi e ricette.
 
+### Modalità di Accesso
+
+Gli utenti possono accedere al sistema tramite:
+- **Credenziali del proprio account, previa registrazione**
+
 ## Tecnologie Utilizzate
 
 - **Backend:** Spring Boot
